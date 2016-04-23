@@ -91,6 +91,7 @@
 	      console.log('Successful login for: ' + response.name);
 	      document.getElementById('status').innerHTML =
 	        'Thanks for logging in, ' + response.name + '!';
+	      document.getElementById("notLoggedIn").style.display="none";
 	    });
 	  }
 	</script>
@@ -109,14 +110,15 @@
                 	<div class="span12">
                         <div class="page-header">
 							<h1>Facebook Login</h1>
-							<div id="introText">
-							Click the button below to login to this web application using Facebook. 
+							<div id="notLoggedIn">
+								<div id="introText">
+									Click the button below to login to this web application using Facebook. 
+								</div>
+								<div>
+									<fb:login-button scope="public_profile" onlogin="checkLoginState();"></fb:login-button>
+								</div>
 							</div>
-						</div>
-						<div>
-							<fb:login-button scope="public_profile" onlogin="checkLoginState();"></fb:login-button>
-							<div id="status">
-							</div>
+							<div id="status"></div>
 						</div>
 					</div>
 				</div>
